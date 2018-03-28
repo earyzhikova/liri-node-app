@@ -25,22 +25,22 @@ switch (nodeArgs[2]) {
 
 
 // Twitter data
-// function myTweets(){
+function myTweets(){
 
-//  importkeys.twitter.consumer_key;
-//  var client = new Twitter(importkeys.twitter);
+ importkeys.twitter.consumer_key;
+ var client = new Twitter(importkeys.twitter);
 
-//  client.get('statuses/user_timeline', {screen_name: 'div55Len', count:20}, function(error, tweets, response) {
-//  if(error) throw error;
+ client.get('statuses/user_timeline', {screen_name: 'div55Len', count:20}, function(error, tweets, response) {
+ if(error) throw error;
 
-// for (var key in tweets){
-//     if (tweets.hasOwnProperty(key)){
-//         console.log(tweets[key].text);
-//       console.log(tweets[key].created_at);
-//     }
-//    }
-//   });
-//  }
+for (var key in tweets){
+    if (tweets.hasOwnProperty(key)){
+        console.log(tweets[key].text);
+      console.log(tweets[key].created_at);
+    }
+   }
+  });
+ }
 
 
 
@@ -96,44 +96,44 @@ function spotifyThisSong() {
 // OMDB data
 
 
-// function movieThis(){
-// // Create an empty variable for holding the movie name
-// var movie = "";
+function movieThis(){
+// Create an empty variable for holding the movie name
+var movie = "";
 
-// // Loop through the words in the node argument
-// // And do a  for loop to handle the inclusion of "+"s
-// for (var i = 3; i < nodeArgs.length; i++) {
+// Loop through the words in the node argument
+// And do a  for loop to handle the inclusion of "+"s
+for (var i = 3; i < nodeArgs.length; i++) {
 
-//       movie = movie + "+" + nodeArgs[i];
-//   };
-// if(movie == "") {
-//   movie = "+ Mr.Nobody";
-// }
-// var param = movie;
-// // run a request to the OMDB API
-// var queryUrl = "http://www.omdbapi.com/?t=" + param + "&y=&plot=short&apikey=trilogy";
+      movie = movie + "+" + nodeArgs[i];
+  };
+if(movie == "") {
+  movie = "+ Mr.Nobody";
+}
+var param = movie;
+// run a request to the OMDB API
+var queryUrl = "http://www.omdbapi.com/?t=" + param + "&y=&plot=short&apikey=trilogy";
 
-// // This line is just to help us debug against the actual URL.
-// console.log(queryUrl);
+// This line is just to help us debug against the actual URL.
+console.log(queryUrl);
 
-// request(queryUrl, function(error, response, body) {
+request(queryUrl, function(error, response, body) {
 
-//   // If the request is successful
-//   if (!error && response.statusCode === 200) {
+  // If the request is successful
+  if (!error && response.statusCode === 200) {
 
-//     // Parse the body of the site 
-//     var movieObject = JSON.parse(body);
-//     var movieResults =  
-//     "Title: " + movieObject.Title+"\n"+  
-//     "Year: " + movieObject.Year+"\n"+
-//     "Imdb Rating: " + movieObject.imdbRating+"\n"+
-//     "Rotten Tomatoes Rating: " + movieObject.tomatoRating+"\n"+
-//     "Country: " + movieObject.Country+"\n"+
-//     "Language: " + movieObject.Language+"\n"+
-//     "Plot: " + movieObject.Plot+"\n"+
-//     "Actors: " + movieObject.Actors+"\n";
+    // Parse the body of the site 
+    var movieObject = JSON.parse(body);
+    var movieResults =  
+    "Title: " + movieObject.Title+"\n"+  
+    "Year: " + movieObject.Year+"\n"+
+    "Imdb Rating: " + movieObject.imdbRating+"\n"+
+    "Rotten Tomatoes Rating: " + movieObject.tomatoRating+"\n"+
+    "Country: " + movieObject.Country+"\n"+
+    "Language: " + movieObject.Language+"\n"+
+    "Plot: " + movieObject.Plot+"\n"+
+    "Actors: " + movieObject.Actors+"\n";
 
-//     console.log(movieResults);
-//   };
-// });
-// };
+    console.log(movieResults);
+  };
+});
+};
